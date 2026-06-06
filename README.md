@@ -31,8 +31,8 @@ Google Colab with NVCC Compiler
 
 ## PROGRAM:
 ```
-Developed By : Sriram Gopalan G
-Register No. : 212222230149
+Developed By : Selva Kani R
+Register No. : 2305002020
 ```
 ```
 %%cuda
