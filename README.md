@@ -1,17 +1,13 @@
 # PCA: EXP-1  SUM ARRAY GPU
-
-<h3>ENTER YOUR NAME : Selva Kani R</h3>
-<h3>ENTER YOUR REGISTER NO : 2305002020</h3>
-
-
+<h3>ENTER YOUR NAME: Selva Kani R</h3>
+<h3>ENTER YOUR REGISTER NO: 23055002020</h3>
+<h3>EX. NO: 01</h3>
+<h3>DATE: 28.03.25</h3>
 <h1> <align=center> SUM ARRAY ON HOST AND DEVICE </h3>
 PCA-GPU-based-vector-summation.-Explore-the-differences.
-    
 i) Using the program sumArraysOnGPU-timer.cu, set the block.x = 1023. Recompile and run it. Compare the result with the execution configuration of block.x = 1024. Try to explain the difference and the reason.
 
-
 ii) Refer to sumArraysOnGPU-timer.cu, and let block.x = 256. Make a new kernel to let each thread handle two elements. Compare the results with other execution confi gurations.
-
 ## AIM:
 
 To perform vector addition on host and device.
@@ -19,6 +15,9 @@ To perform vector addition on host and device.
 ## EQUIPMENTS REQUIRED:
 Hardware – PCs with NVIDIA GPU & CUDA NVCC
 Google Colab with NVCC Compiler
+
+
+
 
 ## PROCEDURE:
 
@@ -30,10 +29,6 @@ Google Colab with NVCC Compiler
 6. Copy output data from the device to the host and verify the results against the host's sequential vector addition. Free memory on the host and the device.
 
 ## PROGRAM:
-```
-Developed By : Selva Kani R
-Register No. : 2305002020
-```
 ```
 %%cuda
 #include <cuda_runtime.h>
@@ -65,6 +60,9 @@ Register No. : 2305002020
         exit(1);                                                               \
     }                                                                          \
 }
+//The CHECK_CUBLAS macro is used in C/C++ programs to handle errors that might
+// occur when calling functions from the cuBLAS library,
+//which is a GPU-accelerated library for basic linear algebra operations on NVIDIA GPUs.
 
 #define CHECK_CURAND(call)                                                     \
 {                                                                              \
@@ -88,6 +86,11 @@ Register No. : 2305002020
     }                                                                          \
 }
 
+//he CHECK_CURAND macro is similar to the CHECK_CUBLAS macro,
+//but it is designed for error handling when using the cuRAND library,
+//which is a GPU-accelerated library for generating random numbers on
+//NVIDIA GPUs.
+
 #define CHECK_CUSPARSE(call)                                                   \
 {                                                                              \
     cusparseStatus_t err;                                                      \
@@ -103,6 +106,16 @@ Register No. : 2305002020
         exit(1);                                                               \
     }                                                                          \
 }
+//The CHECK_CUSPARSE macro is designed to handle error checking when calling
+//functions from the cuSPARSE library, which is part of NVIDIA's CUDA Toolkit
+//and provides GPU-accelerated sparse matrix operations.
+//This macro checks whether a cuSPARSE function call succeeds or fails, and if
+//it fails, it reports the error and terminates the program.
+//he cuSPARSE library is a GPU-accelerated library within NVIDIA's CUDA Toolkit
+//designed specifically for sparse matrix operations.
+//Sparse matrices are matrices in which most of the elements are zero,
+//and they are commonly used in scientific computing, machine learning,
+//and data analytics to efficiently store and compute data.
 
 inline double seconds()
 {
@@ -113,6 +126,10 @@ inline double seconds()
 }
 
 #endif // _COMMON_H
+//The seconds() function you've provided is a utility function written in C/C++
+// to measure elapsed time with a high degree of precision.
+//It uses the gettimeofday function, which is available on UNIX-like systems
+ //(e.g., Linux, macOS), to retrieve the current time
 
 void checkResult(float *hostRef, float *gpuRef, const int N)
 {
@@ -253,11 +270,8 @@ int main(int argc, char **argv)
 ```
 
 ## OUTPUT:
-
-<img width="764" height="135" alt="image" src="https://github.com/user-attachments/assets/053ce414-14e2-4ead-9262-caa1c477f07b" />
-
+![image](https://github.com/user-attachments/assets/d39f0de6-47fa-490a-a0dd-20c117614795)
 
 
 ## RESULT:
-
 Thus, Implementation of sum arrays on host and device is done in nvcc cuda using random number.
